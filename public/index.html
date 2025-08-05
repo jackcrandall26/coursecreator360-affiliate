@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CourseCreator360 - Create & Sell Online Courses Like a Pro</title>
+    <meta name="description" content="Transform your expertise into profitable online courses with CourseCreator360. Complete course creation platform with everything you need to succeed.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Complete CSS inlined for perfect display */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #333; background-color: #ffffff; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .header { position: fixed; top: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid #e2e8f0; }
+        .nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 20px; }
+        .nav-logo h2 { color: #6366f1; font-weight: 700; font-size: 1.5rem; }
+        .nav-links { display: flex; gap: 2rem; align-items: center; }
+        .nav-links a { text-decoration: none; color: #64748b; font-weight: 500; transition: color 0.3s ease; }
+        .nav-links a:hover { color: #6366f1; }
+        .nav-cta { background: #6366f1; color: white !important; padding: 0.5rem 1rem; border-radius: 8px; transition: background 0.3s ease; }
+        .nav-cta:hover { background: #5145e6; }
+        .hero { padding: 8rem 0 4rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; overflow: hidden; }
+        .hero .container { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .hero-title { font-size: 3.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem; }
+        .highlight { color: #fbbf24; }
+        .hero-subtitle { font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.9; line-height: 1.6; }
+        .hero-stats { display: flex; gap: 2rem; margin-bottom: 3rem; }
+        .stat { text-align: center; }
+        .stat-number { display: block; font-size: 2rem; font-weight: 700; color: #fbbf24; }
+        .stat-label { font-size: 0.9rem; opacity: 0.8; }
+        .hero-cta { display: flex; flex-direction: column; align-items: flex-start; gap: 1rem; }
+        .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2rem; text-decoration: none; border-radius: 12px; font-weight: 600; transition: all 0.3s ease; border: none; cursor: pointer; font-size: 1rem; }
+        .btn-primary { background: #fbbf24; color: #1f2937; }
+        .btn-primary:hover { background: #f59e0b; transform: translateY(-2px); box-shadow: 0 10px 25px rgba(251, 191, 36, 0.3); }
+        .btn-outline { background: transparent; color: #6366f1; border: 2px solid #6366f1; }
+        .btn-outline:hover { background: #6366f1; color: white; }
+        .btn-large { padding: 1.25rem 2.5rem; font-size: 1.125rem; }
+        .hero-guarantee { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; opacity: 0.8; }
+        .hero-image { display: flex; justify-content: center; align-items: center; }
+        .mockup { background: white; padding: 20px; border-radius: 20px; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3); transform: rotate(5deg); transition: transform 0.3s ease; }
+        .mockup:hover { transform: rotate(0deg); }
+        .mockup-screen { width: 300px; height: 200px; background: #f8fafc; border-radius: 12px; overflow: hidden; }
+        .mockup-content { padding: 15px; height: 100%; }
+        .course-preview { height: 100%; display: flex; flex-direction: column; gap: 10px; }
+        .course-header { height: 20px; background: #e2e8f0; border-radius: 4px; }
+        .course-video { height: 80px; background: #6366f1; border-radius: 8px; position: relative; }
+        .course-video::after { content: '▶'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 24px; }
+        .course-lessons { display: flex; flex-direction: column; gap: 5px; flex: 1; }
+        .lesson { height: 12px; background: #cbd5e1; border-radius: 2px; }
+        .problem { padding: 5rem 0; background: #f8fafc; text-align: center; }
+        .problem h2 { font-size: 2.5rem; margin-bottom: 3rem; color: #1f2937; }
+        .problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .problem-item { background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); }
+        .problem-item i { font-size: 3rem; color: #ef4444; margin-bottom: 1rem; }
+        .problem-item h3 { font-size: 1.25rem; margin-bottom: 1rem; color: #1f2937; }
+        .features { padding: 5rem 0; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; color: #1f2937; }
+        .section-header p { font-size: 1.125rem; color: #64748b; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+        .feature-card { background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); border: 1px solid #e2e8f0; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1); }
+        .feature-icon { width: 60px; height: 60px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+        .feature-icon i { font-size: 1.5rem; color: white; }
+        .feature-card h3 { font-size: 1.25rem; margin-bottom: 1rem; color: #1f2937; }
+        .feature-card p { color: #64748b; line-height: 1.6; }
+        .testimonials { padding: 5rem 0; background: #f8fafc; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+        .testimonial-card { background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); position: relative; }
+        .testimonial-content p { font-size: 1.125rem; margin-bottom: 1.5rem; font-style: italic; color: #374151; }
+        .testimonial-author { display: flex; align-items: center; gap: 1rem; }
+        .author-avatar { width: 50px; height: 50px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; }
+        .testimonial-author h4 { font-weight: 600; color: #1f2937; }
+        .testimonial-author span { color: #64748b; font-size: 0.9rem; }
+        .testimonial-stats { position: absolute; top: 1rem; right: 1rem; background: #fbbf24; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.8rem; color: #1f2937; }
+        .pricing { padding: 5rem 0; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .pricing-card { background: white; padding: 2rem; border-radius: 16px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); border: 2px solid #e2e8f0; text-align: center; position: relative; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .pricing-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1); }
+        .pricing-card.popular { border-color: #6366f1; transform: scale(1.05); }
+        .popular-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #6366f1; color: white; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+        .pricing-card h3 { font-size: 1.5rem; margin-bottom: 1rem; color: #1f2937; }
+        .price { margin-bottom: 2rem; }
+        .price-amount { font-size: 3rem; font-weight: 700; color: #6366f1; }
+        .price-period { color: #64748b; }
+        .features-list { list-style: none; margin-bottom: 2rem; text-align: left; }
+        .features-list li { padding: 0.5rem 0; display: flex; align-items: center; gap: 0.5rem; }
+        .features-list i { color: #10b981; width: 16px; }
+        .cta { padding: 5rem 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center; }
+        .cta-content h2 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .cta-content p { font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.9; }
+        .cta-features { display: flex; justify-content: center; gap: 2rem; margin-top: 1.5rem; flex-wrap: wrap; }
+        .cta-features span { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; opacity: 0.9; }
+        .footer { padding: 3rem 0 1rem; background: #1f2937; color: white; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+        .footer-section h3 { margin-bottom: 1rem; color: #fbbf24; }
+        .footer-section h4 { margin-bottom: 1rem; color: #e5e7eb; }
+        .footer-section p { color: #9ca3af; line-height: 1.6; }
+        .footer-section ul { list-style: none; }
+        .footer-section ul li { margin-bottom: 0.5rem; }
+        .footer-section ul li a { color: #9ca3af; text-decoration: none; transition: color 0.3s ease; }
+        .footer-section ul li a:hover { color: #fbbf24; }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid #374151; color: #9ca3af; }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero .container { grid-template-columns: 1fr; text-align: center; }
+            .hero-title { font-size: 2.5rem; }
+            .hero-stats { justify-content: center; }
+            .features-grid, .testimonials-grid, .pricing-grid { grid-template-columns: 1fr; }
+            .problem-grid { grid-template-columns: 1fr; }
+            .cta-features { flex-direction: column; align-items: center; }
+            .pricing-card.popular { transform: none; }
+        }
+        @media (max-width: 480px) {
+            .container { padding: 0 15px; }
+            .hero-title { font-size: 2rem; }
+            .hero-subtitle { font-size: 1rem; }
+            .section-header h2 { font-size: 2rem; }
+            .btn { padding: 0.75rem 1.5rem; }
+            .btn-large { padding: 1rem 2rem; }
+        }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .hero-content, .feature-card, .testimonial-card, .pricing-card { animation: fadeInUp 0.6s ease-out; }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav-logo">
+                <h2>CourseCreator360</h2>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#testimonials">Reviews</a>
+                <a href="#cta" class="nav-cta">Get Started</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Turn Your Knowledge Into 
+                    <span class="highlight">Profitable Online Courses</span>
+                </h1>
+                <p class="hero-subtitle">
+                    CourseCreator360 is the complete platform that takes you from idea to income. 
+                    Create, market, and sell your online courses with zero technical headaches.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">50,000+</span>
+                        <span class="stat-label">Course Creators</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">$12M+</span>
+                        <span class="stat-label">Revenue Generated</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">4.9/5</span>
+                        <span class="stat-label">User Rating</span>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a href="https://coursecreator360.com?ref=affiliate" class="btn btn-primary" target="_blank">
+                        Start Your Course Empire Today
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <p class="hero-guarantee">
+                        <i class="fas fa-shield-alt"></i>
+                        30-day money-back guarantee
+                    </p>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="mockup">
+                    <div class="mockup-screen">
+                        <div class="mockup-content">
+                            <div class="course-preview">
+                                <div class="course-header"></div>
+                                <div class="course-video"></div>
+                                <div class="course-lessons">
+                                    <div class="lesson"></div>
+                                    <div class="lesson"></div>
+                                    <div class="lesson"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <h2>Tired of Complicated Course Creation?</h2>
+            <div class="problem-grid">
+                <div class="problem-item">
+                    <i class="fas fa-times-circle"></i>
+                    <h3>Technical Overwhelm</h3>
+                    <p>Juggling multiple tools, plugins, and platforms just to get started</p>
+                </div>
+                <div class="problem-item">
+                    <i class="fas fa-times-circle"></i>
+                    <h3>Marketing Struggles</h3>
+                    <p>Great content but no one knows about your course</p>
+                </div>
+                <div class="problem-item">
+                    <i class="fas fa-times-circle"></i>
+                    <h3>Payment Headaches</h3>
+                    <p>Complex payment setups and transaction fees eating your profits</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution/Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Everything You Need in One Platform</h2>
+                <p>CourseCreator360 eliminates the complexity with an all-in-one solution</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Drag & Drop Course Builder</h3>
+                    <p>Create stunning courses with our intuitive editor. Add videos, quizzes, assignments, and more without any coding.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Built-in Marketing Tools</h3>
+                    <p>Email campaigns, sales funnels, and affiliate programs built right in. Market your course like a pro.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3>Seamless Payments</h3>
+                    <p>Accept payments globally with our integrated payment system. No third-party fees or complicated setups.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Advanced Analytics</h3>
+                    <p>Track student progress, sales performance, and optimize your courses with detailed insights.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile-First Design</h3>
+                    <p>Your courses look perfect on any device. Students can learn anywhere, anytime.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Expert Support</h3>
+                    <p>Get help when you need it with our dedicated support team and extensive knowledge base.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Success Stories from Real Course Creators</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"I went from $0 to $50K in course sales within 6 months using CourseCreator360. The platform made everything so simple!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"></div>
+                            <div>
+                                <h4>Sarah Chen</h4>
+                                <span>Digital Marketing Expert</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-stats">
+                        <span>$50K Revenue</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The built-in marketing tools are incredible. I've grown my email list from 100 to 15,000 subscribers while building my course."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"></div>
+                            <div>
+                                <h4>Mike Rodriguez</h4>
+                                <span>Fitness Coach</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-stats">
+                        <span>15K Subscribers</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Finally, a platform that handles everything. I can focus on creating great content instead of wrestling with technology."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar"></div>
+                            <div>
+                                <h4>Jennifer Adams</h4>
+                                <span>Business Consultant</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-stats">
+                        <span>98% Satisfaction</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose Your Success Plan</h2>
+                <p>Start free, scale as you grow</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">
+                        <span class="price-amount">$29</span>
+                        <span class="price-period">/month</span>
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Create unlimited courses</li>
+                        <li><i class="fas fa-check"></i> Up to 1,000 students</li>
+                        <li><i class="fas fa-check"></i> Basic analytics</li>
+                        <li><i class="fas fa-check"></i> Email support</li>
+                    </ul>
+                    <a href="https://coursecreator360.com?ref=affiliate&plan=starter" class="btn btn-outline" target="_blank">Get Started</a>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Professional</h3>
+                    <div class="price">
+                        <span class="price-amount">$79</span>
+                        <span class="price-period">/month</span>
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Everything in Starter</li>
+                        <li><i class="fas fa-check"></i> Unlimited students</li>
+                        <li><i class="fas fa-check"></i> Advanced marketing tools</li>
+                        <li><i class="fas fa-check"></i> Affiliate program</li>
+                        <li><i class="fas fa-check"></i> Priority support</li>
+                    </ul>
+                    <a href="https://coursecreator360.com?ref=affiliate&plan=professional" class="btn btn-primary" target="_blank">Start Free Trial</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">
+                        <span class="price-amount">$199</span>
+                        <span class="price-period">/month</span>
+                    </div>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Everything in Professional</li>
+                        <li><i class="fas fa-check"></i> White-label solution</li>
+                        <li><i class="fas fa-check"></i> Custom integrations</li>
+                        <li><i class="fas fa-check"></i> Dedicated account manager</li>
+                    </ul>
+                    <a href="https://coursecreator360.com?ref=affiliate&plan=enterprise" class="btn btn-outline" target="_blank">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta" id="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Build Your Course Empire?</h2>
+                <p>Join thousands of successful course creators who've chosen CourseCreator360</p>
+                <a href="https://coursecreator360.com?ref=affiliate" class="btn btn-primary btn-large" target="_blank">
+                    Start Your Free Trial Now
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <div class="cta-features">
+                    <span><i class="fas fa-check"></i> 14-day free trial</span>
+                    <span><i class="fas fa-check"></i> No credit card required</span>
+                    <span><i class="fas fa-check"></i> Cancel anytime</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CourseCreator360</h3>
+                    <p>Empowering educators and entrepreneurs to share their knowledge and build successful online course businesses.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Platform</h4>
+                    <ul>
+                        <li><a href="https://coursecreator360.com/features?ref=affiliate" target="_blank">Features</a></li>
+                        <li><a href="https://coursecreator360.com/pricing?ref=affiliate" target="_blank">Pricing</a></li>
+                        <li><a href="https://coursecreator360.com/templates?ref=affiliate" target="_blank">Templates</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="https://coursecreator360.com/help?ref=affiliate" target="_blank">Help Center</a></li>
+                        <li><a href="https://coursecreator360.com/contact?ref=affiliate" target="_blank">Contact</a></li>
+                        <li><a href="https://coursecreator360.com/community?ref=affiliate" target="_blank">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="https://coursecreator360.com/privacy?ref=affiliate" target="_blank">Privacy Policy</a></li>
+                        <li><a href="https://coursecreator360.com/terms?ref=affiliate" target="_blank">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CourseCreator360 Affiliate. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
