@@ -1,0 +1,24 @@
+{
+  "name": "coursecreator360-affiliate",
+  "version": "1.0.0",
+  "description": "Affiliate sales page for CourseCreator360",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 3000",
+    "build": "echo 'Build complete - static site ready for deployment'",
+    "start": "python -m http.server 8000"
+  },
+  "keywords": [
+    "affiliate",
+    "course-creation",
+    "landing-page",
+    "coursecreator360"
+  ],
+  "author": "Affiliate Partner",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/coursecreator360-affiliate.git"
+  },
+  "homepage": "https://coursecreator360-affiliate.vercel.app"
+}
