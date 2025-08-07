@@ -1,24 +1,27 @@
 {
-  "name": "coursecreator360-affiliate",
+  "name": "coursecreator360-affiliate-react",
+  "private": true,
   "version": "1.0.0",
-  "description": "Affiliate sales page for CourseCreator360",
-  "main": "index.html",
+  "type": "module",
   "scripts": {
-    "dev": "python -m http.server 3000",
-    "build": "echo 'Build complete - static site ready for deployment'",
-    "start": "python -m http.server 8000"
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
-  "keywords": [
-    "affiliate",
-    "course-creation",
-    "landing-page",
-    "coursecreator360"
-  ],
-  "author": "Affiliate Partner",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/yourusername/coursecreator360-affiliate.git"
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.20.1"
   },
-  "homepage": "https://coursecreator360-affiliate.vercel.app"
+  "devDependencies": {
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.55.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "vite": "^5.0.8"
+  }
 }
